@@ -46,7 +46,7 @@ public class CostProblem extends GPProblem {
 
         config.setGPFitnessEvaluator(new DeltaGPFitnessEvaluator());
         config.setMaxInitDepth(4);
-        config.setPopulationSize(1000);
+        config.setPopulationSize(2500);
         config.setMaxCrossoverDepth(8);
         config.setFitnessFunction(new CostFitnessFunction(dataSet, variables));
         config.setStrictProgramCreation(true);

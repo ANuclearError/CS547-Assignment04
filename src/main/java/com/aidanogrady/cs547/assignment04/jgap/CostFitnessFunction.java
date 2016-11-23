@@ -52,7 +52,7 @@ public class CostFitnessFunction extends GPFitnessFunction {
                 var.set(record.get(var.getName()));
             }
             double res = gp.execute_double(0, NO_ARGS);
-            result += Math.abs(res - record.getEffort());
+            result += (Math.abs(res - record.getEffort()) / record.getEffort());
         }
         return result;
     }
