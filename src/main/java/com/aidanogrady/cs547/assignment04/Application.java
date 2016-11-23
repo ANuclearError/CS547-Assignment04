@@ -29,7 +29,7 @@ public class Application {
         GPProblem problem = new CostProblem(dataSet);
         GPGenotype gp = problem.create();
         gp.setVerboseOutput(true);
-        gp.evolve(500);
+        gp.evolve(30);
         System.out.println("Solving " + dataSet.getName() + " dataset");
         gp.outputSolution(gp.getAllTimeBest());
     }
