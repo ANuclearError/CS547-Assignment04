@@ -48,7 +48,7 @@ public class CostProblem extends GPProblem {
         config.setMaxInitDepth(4);
         config.setPopulationSize(1000);
         config.setMaxCrossoverDepth(8);
-        //config.setFitnessFunction();
+        config.setFitnessFunction(new CostFitnessFunction(dataSet, variables));
         config.setStrictProgramCreation(true);
     }
 
@@ -67,7 +67,7 @@ public class CostProblem extends GPProblem {
                 new Subtract(config, CommandGene.DoubleClass),
                 new Multiply(config, CommandGene.DoubleClass),
                 new Divide(config, CommandGene.DoubleClass),
-                new Terminal(config, CommandGene.DoubleClass, 0, 100, true)
+                new Terminal(config, CommandGene.DoubleClass, 0, 999, true)
         };
 
         int size = varSet.length + functSet.length;
