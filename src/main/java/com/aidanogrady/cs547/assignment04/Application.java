@@ -1,8 +1,9 @@
 package com.aidanogrady.cs547.assignment04;
 
 import com.aidanogrady.cs547.assignment04.data.DataParser;
-import com.aidanogrady.cs547.assignment04.data.DataRecord;
 import com.aidanogrady.cs547.assignment04.data.DataSet;
+import com.aidanogrady.cs547.assignment04.jgap.CostProblem;
+import org.jgap.gp.GPProblem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  * @since 0.0
  */
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("CS547 Assignment 04: Software Cost Estimation");
         System.out.println("Author: Aidan O'Grady (201218150)\n");
 
@@ -24,11 +25,7 @@ public class Application {
         attributes.add("AdjFP");
 
         DataSet dataSet = DataParser.parseFile(fileName, attributes);
-        for (DataRecord record : dataSet.getRecords()) {
-            for (String attribute : dataSet.getAttributes()) {
-                System.out.print(attribute + " " + record.get(attribute) + "\t");
-            }
-            System.out.println("\tEffort " + record.getEffort());
-        }
+        GPProblem problem = new CostProblem(dataSet);
+        problem.create();
     }
 }
