@@ -18,7 +18,7 @@ public class Application {
         System.out.println("CS547 Assignment 04: Software Cost Estimation");
         System.out.println("Author: Aidan O'Grady (201218150)\n");
 
-        String fileName = "data/kemerer.arff";
+        String fileName = "datasets/kemerer.arff";
         List<String> attributes = new ArrayList<>();
         attributes.add("KSLOC");
         attributes.add("AdjFP");

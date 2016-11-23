@@ -22,4 +22,4 @@ log/
 *.synctex.gz
 *.toc
 
-data/
+datasets/
