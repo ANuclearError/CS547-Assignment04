@@ -4,10 +4,7 @@ import com.aidanogrady.cs547.assignment04.data.DataSet;
 import org.jgap.InvalidConfigurationException;
 import org.jgap.gp.CommandGene;
 import org.jgap.gp.GPProblem;
-import org.jgap.gp.function.Add;
-import org.jgap.gp.function.Divide;
-import org.jgap.gp.function.Multiply;
-import org.jgap.gp.function.Subtract;
+import org.jgap.gp.function.*;
 import org.jgap.gp.impl.DeltaGPFitnessEvaluator;
 import org.jgap.gp.impl.GPConfiguration;
 import org.jgap.gp.impl.GPGenotype;
@@ -67,7 +64,10 @@ public class CostProblem extends GPProblem {
                 new Subtract(config, CommandGene.DoubleClass),
                 new Multiply(config, CommandGene.DoubleClass),
                 new Divide(config, CommandGene.DoubleClass),
-                new Terminal(config, CommandGene.DoubleClass, 0, 999, true)
+                new Pow(config, CommandGene.DoubleClass),
+                new Log(config, CommandGene.DoubleClass),
+                new Exp(config, CommandGene.DoubleClass),
+                new Terminal(config, CommandGene.DoubleClass, 0, 10, false)
         };
 
         int size = varSet.length + functSet.length;

@@ -4,7 +4,6 @@ import com.aidanogrady.cs547.assignment04.data.DataParser;
 import com.aidanogrady.cs547.assignment04.data.DataRecord;
 import com.aidanogrady.cs547.assignment04.data.DataSet;
 import com.aidanogrady.cs547.assignment04.jgap.CostProblem;
-import org.jgap.InvalidConfigurationException;
 import org.jgap.gp.GPProblem;
 import org.jgap.gp.IGPProgram;
 import org.jgap.gp.impl.GPGenotype;
@@ -50,7 +49,7 @@ public class Application {
         IGPProgram best = gp.getAllTimeBest();
 
         double close = 0;
-        double percent = 0.1;
+        double percent = 0.25;
         DecimalFormat df = new DecimalFormat("#.00");
         for (int i = 1; i <= dataSet.getRecords().size(); i++) {
             DataRecord record = dataSet.getRecord(i - 1);
