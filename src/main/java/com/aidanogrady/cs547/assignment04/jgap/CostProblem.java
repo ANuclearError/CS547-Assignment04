@@ -56,9 +56,7 @@ public class CostProblem extends GPProblem {
         Class[][] argTypes = {{}};
 
         CommandGene[] varSet = new CommandGene[variables.size()];
-        for (int i = 0; i < variables.size(); i++) {
-            varSet[i] = variables.get(i);
-        }
+        variables.toArray(varSet);
         CommandGene[] functSet = {
                 new Add(config, CommandGene.DoubleClass),
                 new Subtract(config, CommandGene.DoubleClass),
@@ -67,7 +65,7 @@ public class CostProblem extends GPProblem {
                 new Pow(config, CommandGene.DoubleClass),
                 new Log(config, CommandGene.DoubleClass),
                 new Exp(config, CommandGene.DoubleClass),
-                new Terminal(config, CommandGene.DoubleClass, 0, 10, false)
+                new Terminal(config, CommandGene.DoubleClass, 0, 100, false)
         };
 
         int size = varSet.length + functSet.length;
