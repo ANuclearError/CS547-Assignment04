@@ -26,7 +26,7 @@ public class DataParser {
             List<String> attr = new ArrayList<>();
             List<Integer> indices = new ArrayList<>();
             // Extract
-            while (line != null && !line.equals("@data")) {
+            while (line != null && !line.equals(DATA)) {
                 if (line.startsWith(RELATION)) {
                     name = line.replace(RELATION, "");
                 } else if (line.startsWith(ATTRIBUTE)) {

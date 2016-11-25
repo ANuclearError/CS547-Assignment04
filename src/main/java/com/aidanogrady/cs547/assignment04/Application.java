@@ -10,6 +10,7 @@ import org.jgap.gp.IGPProgram;
 import org.jgap.gp.impl.GPGenotype;
 import org.jgap.gp.terminal.Variable;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class Application {
             GPProblem problem = new CostProblem(dataSet);
             GPGenotype gp = problem.create();
             gp.setVerboseOutput(true);
-            gp.evolve(150);
+            gp.evolve(1000);
             System.out.println();
             System.out.println("Solving " + dataSet.getName() + " dataset");
             gp.outputSolution(gp.getAllTimeBest());
@@ -44,6 +45,7 @@ public class Application {
 
             double close = 0;
             double percent = 0.1;
+            DecimalFormat df = new DecimalFormat("#.00");
             for (int i = 1; i <= dataSet.getRecords().size(); i++) {
                 DataRecord record = dataSet.getRecord(i - 1);
                 for (int j = 0; j < dataSet.getAttributes().size(); j++) {
@@ -54,8 +56,8 @@ public class Application {
                 double val = best.execute_double(0, new Object[] {});
                 double effort = record.getEffort();
 
-                System.out.print(i + ". ");
-                System.out.print("Cost " + val + "\tActual " + effort);
+                System.out.print(i + ".\t");
+                System.out.print("Cost " + df.format(val) + "\tActual " + effort);
                 double diff = Math.abs(val - effort);
                 if (diff / effort < percent) {
                     System.out.println("\tCLOSE");
