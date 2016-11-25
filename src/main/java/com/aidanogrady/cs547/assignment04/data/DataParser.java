@@ -22,7 +22,7 @@ public class DataParser {
 
             String line = br.readLine();
 
-            String name = "";
+            String name = null;
             List<String> attr = new ArrayList<>();
             List<Integer> indices = new ArrayList<>();
             // Extract
@@ -41,6 +41,10 @@ public class DataParser {
             for (String attribute : attributes) {
                 indices.add(attr.indexOf(attribute));
             }
+
+            if (name == null || attr.isEmpty())
+                return null;
+
             DataSet dataSet = new DataSet(name, attributes);
 
             line = br.readLine();
