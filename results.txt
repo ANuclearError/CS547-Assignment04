@@ -1,25 +1,61 @@
 Kemerer:
-	Best Fitness: 0.27
-	Best Solution: ((log Duration) * Duration) + ((((Duration + (Duration + (RAWFP / Duration))) + Duration) / Language) - Language)
-	Depth of chrom: 7
+    Best Fitness: 0.27
+    Best Solution: ((log Duration) * Duration) + ((((Duration + (Duration + (RAWFP / Duration))) + Duration) / Language) - Language)
+    Depth of chrom: 7
 
-	1.	Estimated 157.576	Actual 287.00	 within 50%
-	2.	Estimated 98.907	Actual 82.50	 within 25%
-	3.	Estimated 236.887	Actual 1107.31
-	4.	Estimated 153.971	Actual 86.90
-	5.	Estimated 193.114	Actual 336.30	 within 50%
-	6.	Estimated 104.247	Actual 84.00	 within 25%
-	7.	Estimated 23.247	Actual 23.20	 within 10%
-	8.	Estimated 149.104	Actual 130.30	 within 25%
-	9.	Estimated 188.947	Actual 116.00
-	10.	Estimated 72.047	Actual 72.00	 within 10%
-	11.	Estimated 194.652	Actual 258.70	 within 25%
-	12.	Estimated 221.808	Actual 230.70	 within 10%
-	13.	Estimated 154.165	Actual 157.00	 within 10%
-	14.	Estimated 214.595	Actual 246.90	 within 25%
-	15.	Estimated 71.185	Actual 69.90	 within 10%
+    1.  Estimated 157.576   Actual 287.     within 50%
+    2.  Estimated 98.907    Actual 82.50    within 25%
+    3.  Estimated 236.887   Actual 1107.31
+    4.  Estimated 153.971   Actual 86.90
+    5.  Estimated 193.114   Actual 336.     within 50%
+    6.  Estimated 104.247   Actual 84.0     within 25%
+    7.  Estimated 23.247    Actual 23.20    within 10%
+    8.  Estimated 149.104   Actual 130.     within 25%
+    9.  Estimated 188.947   Actual 116.00
+    10. Estimated 72.047    Actual 72.0     within 10%
+    11. Estimated 194.652   Actual 258.70   within 25%
+    12. Estimated 221.808   Actual 230.70   within 10%
+    13. Estimated 154.165   Actual 157.00   within 10%
+    14. Estimated 214.595   Actual 246.90   within 25%
+    15. Estimated 71.185    Actual 69.9     within 10%
 
-	MMRE: 0.274
-	PRED(50): 0.80
-	PRED(25): 0.67
-	PRED(10): 0.33
+    MMRE: 0.274
+    PRED(50): 0.80
+    PRED(25): 0.67
+    PRED(10): 0.33
+
+Albrecht:
+    Best Fitness: 0.37
+    Best Solution: (AdjFP / 48.06688177596948) - ((AdjFP / ((AdjFP / 66.78570121890209) ^ (AdjFP / 65.42992137004208))) / (Exp((47.44671011959201 / 70.19716283837693))))
+    Depth of chrom: 5
+
+    1.  Estimated 36.408    Actual 102.40
+    2.  Estimated 39.570    Actual 105.20
+    3.  Estimated 8.903     Actual 11.10    within 25%
+    4.  Estimated 15.790    Actual 21.10    within 50%
+    5.  Estimated 8.966     Actual 28.80
+    6.  Estimated 5.608     Actual 10.00    within 50%
+    7.  Estimated 1.159     Actual 8.00
+    8.  Estimated 5.785     Actual 4.90     within 25%
+    9.  Estimated 14.147    Actual 12.90    within 10%
+    10. Estimated 16.519    Actual 19.0     within 25%
+    11. Estimated 10.652    Actual 10.8     within 10%
+    12. Estimated 2.851     Actual 2.90     within 10%
+    13. Estimated 8.674     Actual 7.50     within 25%
+    14. Estimated 14.189    Actual 12.0     within 25%
+    15. Estimated 1.569     Actual 4.10
+    16. Estimated 10.652    Actual 15.8     within 50%
+    17. Estimated 12.607    Actual 18.3     within 50%
+    18. Estimated 8.318     Actual 8.90     within 10%
+    19. Estimated 25.693    Actual 38.10    within 50%
+    20. Estimated 32.704    Actual 61.20    within 50%
+    21. Estimated 10.402    Actual 3.60
+    22. Estimated 14.438    Actual 11.80    within 25%
+    23. Estimated 0.483     Actual 0.50     within 10%
+    24. Estimated 4.812     Actual 6.10     within 25%
+
+    MMRE: 0.373
+    PRED(50): 0.75
+    PRED(25): 0.50
+    PRED(10): 0.21
+
