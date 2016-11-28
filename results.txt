@@ -1,0 +1,25 @@
+Kemerer:
+	Best Fitness: 0.27
+	Best Solution: ((log Duration) * Duration) + ((((Duration + (Duration + (RAWFP / Duration))) + Duration) / Language) - Language)
+	Depth of chrom: 7
+
+	1.	Estimated 157.576	Actual 287.00	 within 50%
+	2.	Estimated 98.907	Actual 82.50	 within 25%
+	3.	Estimated 236.887	Actual 1107.31
+	4.	Estimated 153.971	Actual 86.90
+	5.	Estimated 193.114	Actual 336.30	 within 50%
+	6.	Estimated 104.247	Actual 84.00	 within 25%
+	7.	Estimated 23.247	Actual 23.20	 within 10%
+	8.	Estimated 149.104	Actual 130.30	 within 25%
+	9.	Estimated 188.947	Actual 116.00
+	10.	Estimated 72.047	Actual 72.00	 within 10%
+	11.	Estimated 194.652	Actual 258.70	 within 25%
+	12.	Estimated 221.808	Actual 230.70	 within 10%
+	13.	Estimated 154.165	Actual 157.00	 within 10%
+	14.	Estimated 214.595	Actual 246.90	 within 25%
+	15.	Estimated 71.185	Actual 69.90	 within 10%
+
+	MMRE: 0.274
+	PRED(50): 0.80
+	PRED(25): 0.67
+	PRED(10): 0.33

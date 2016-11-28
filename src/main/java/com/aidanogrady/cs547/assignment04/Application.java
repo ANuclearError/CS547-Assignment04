@@ -10,7 +10,6 @@ import org.jgap.gp.impl.GPGenotype;
 import org.jgap.gp.terminal.Variable;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class Application {
         GPProblem problem = new CostProblem(dataSet);
         GPGenotype gp = problem.create();
         gp.setVerboseOutput(true);
-        gp.evolve(1000);
+        gp.evolve(500);
         System.out.println();
         System.out.println("Solving " + dataSet.getName() + " dataset");
         gp.outputSolution(gp.getAllTimeBest());
@@ -49,10 +48,9 @@ public class Application {
 
         IGPProgram best = gp.getAllTimeBest();
 
-        double close = 0;
         double mmre = 0.0;
-        double percent = 0.25;
-        DecimalFormat df = new DecimalFormat("#.00");
+        double[] percent = {0.5, 0.25, 0.1};
+        double[] pred = {0, 0, 0};
 
         for (int i = 1; i <= dataSet.getRecords().size(); i++) {
             DataRecord record = dataSet.getRecord(i - 1);
@@ -65,23 +63,28 @@ public class Application {
             double effort = record.getEffort();
 
             System.out.print(i + ".\t");
-            System.out.print("Cost " + df.format(val) + "\tActual " + effort);
+            System.out.format("Estimated %03.3f\tActual %03.2f", val, effort);
             double diff = Math.abs(val - effort);
             mmre += (diff / effort);
-            if (diff / effort < percent) {
-                System.out.println("\tCLOSE");
-                close++;
-            } else {
-                System.out.println();
+
+            String p = "";
+            for (int j = 0; j < percent.length; j++) {
+                if (diff / effort < percent[j]) {
+                    p = String.format("\t within %.0f%%", (percent[j] * 100));
+                    pred[j]++;
+                }
             }
+            System.out.println(p);
         }
 
         int size = dataSet.getRecords().size();
-        double pred = close / size;
         mmre /= size;
         System.out.println();
-        System.out.println("Total: " + dataSet.getRecords().size());
-        System.out.format("PRED(%.0f): %.2f\n", (percent * 100), (pred * 100));
         System.out.format("MMRE: %.3f\n", (mmre));
+        for (int i = 0; i < pred.length; i++) {
+            pred[i] /= size;
+            percent[i] *= 100;
+            System.out.format("PRED(%.0f): %.2f\n", percent[i], pred[i]);
+        }
     }
 }
