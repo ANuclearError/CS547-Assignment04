@@ -10,6 +10,7 @@ import org.jgap.gp.impl.GPGenotype;
 import org.jgap.gp.terminal.Variable;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,8 +50,10 @@ public class Application {
         IGPProgram best = gp.getAllTimeBest();
 
         double close = 0;
+        double mmre = 0.0;
         double percent = 0.25;
         DecimalFormat df = new DecimalFormat("#.00");
+
         for (int i = 1; i <= dataSet.getRecords().size(); i++) {
             DataRecord record = dataSet.getRecord(i - 1);
             for (int j = 0; j < dataSet.getAttributes().size(); j++) {
@@ -64,6 +67,7 @@ public class Application {
             System.out.print(i + ".\t");
             System.out.print("Cost " + df.format(val) + "\tActual " + effort);
             double diff = Math.abs(val - effort);
+            mmre += (diff / effort);
             if (diff / effort < percent) {
                 System.out.println("\tCLOSE");
                 close++;
@@ -71,11 +75,13 @@ public class Application {
                 System.out.println();
             }
         }
-        System.out.println();
-        System.out.println("CLOSE = within " + percent * 100 + "% of actual");
-        System.out.println("Total: " + dataSet.getRecords().size());
-        System.out.println("Close: " + close);
-        System.out.println("Percent: " + (close / dataSet.getRecords().size()));
 
+        int size = dataSet.getRecords().size();
+        double pred = close / size;
+        mmre /= size;
+        System.out.println();
+        System.out.println("Total: " + dataSet.getRecords().size());
+        System.out.format("PRED(%.0f): %.2f\n", (percent * 100), (pred * 100));
+        System.out.format("MMRE: %.3f\n", (mmre));
     }
 }
