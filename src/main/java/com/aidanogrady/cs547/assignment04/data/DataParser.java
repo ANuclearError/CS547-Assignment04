@@ -19,20 +19,18 @@ public class DataParser {
                                     String effortName) {
         File file = new File(fileName);
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-
-            String line = br.readLine();
-
-            String name = null;
+            String name = fileName;
             List<String> attr = new ArrayList<>();
             List<Integer> indices = new ArrayList<>();
             // Extract
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = br.readLine();
             while (line != null && !line.equals(DATA)) {
                 if (line.startsWith(RELATION)) {
                     name = line.replace(RELATION, "");
                 } else if (line.startsWith(ATTRIBUTE)) {
                     String[] split = line.replace(ATTRIBUTE, "").split(" ");
-                    if (split.length == 2) {
+                    if (split.length >= 2) {
                         attr.add(split[0]);
                     }
                 }
@@ -42,13 +40,12 @@ public class DataParser {
             for (String attribute : attributes) {
                 indices.add(attr.indexOf(attribute));
             }
-            int effortIndex = attr.indexOf(effortName);
 
-            if (name == null || attr.isEmpty())
+            int effortIndex = attr.indexOf(effortName);
+            if (name == null || attr.isEmpty() || effortIndex < 0)
                 return null;
 
             DataSet dataSet = new DataSet(name, attributes);
-
             line = br.readLine();
             while (line != null) {
                 if (!line.startsWith("%")) {

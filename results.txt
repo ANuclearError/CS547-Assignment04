@@ -1,30 +1,3 @@
-Kemerer:
-    Attributes:   Language, Duration, RAWFP
-    Best Fitness: 0.27
-    Best Solution: ((log Duration) * Duration) + ((((Duration + (Duration + (RAWFP / Duration))) + Duration) / Language) - Language)
-    Depth of chrom: 7
-
-    1.  Estimated 157.576   Actual 287.     within 50%
-    2.  Estimated 98.907    Actual 82.50    within 25%
-    3.  Estimated 236.887   Actual 1107.31
-    4.  Estimated 153.971   Actual 86.90
-    5.  Estimated 193.114   Actual 336.     within 50%
-    6.  Estimated 104.247   Actual 84.0     within 25%
-    7.  Estimated 23.247    Actual 23.20    within 10%
-    8.  Estimated 149.104   Actual 130.     within 25%
-    9.  Estimated 188.947   Actual 116.00
-    10. Estimated 72.047    Actual 72.0     within 10%
-    11. Estimated 194.652   Actual 258.70   within 25%
-    12. Estimated 221.808   Actual 230.70   within 10%
-    13. Estimated 154.165   Actual 157.00   within 10%
-    14. Estimated 214.595   Actual 246.90   within 25%
-    15. Estimated 71.185    Actual 69.9     within 10%
-
-    MMRE: 0.274
-    PRED(50): 12/15 (0.800)
-    PRED(25): 10/15 (0.667)
-    PRED(10): 5/15 (0.333)
-
 Albrecht:
     Attributes: Inquiry, RawFPcounts, FPAdj
     Best Fitness: 0.33
@@ -60,6 +33,189 @@ Albrecht:
     PRED(50): 17 / 24 (0.708)
     PRED(25): 12 / 24 (0.500)
     PRED(10): 8 / 24 (0.333)
+
+Kemerer:
+    Attributes:   Language, Duration, RAWFP
+    Best Fitness: 0.27
+    Best Solution: ((log Duration) * Duration) + ((((Duration + (Duration + (RAWFP / Duration))) + Duration) / Language) - Language)
+    Depth of chrom: 7
+
+    1.  Estimated 157.576   Actual 287.     within 50%
+    2.  Estimated 98.907    Actual 82.50    within 25%
+    3.  Estimated 236.887   Actual 1107.31
+    4.  Estimated 153.971   Actual 86.90
+    5.  Estimated 193.114   Actual 336.     within 50%
+    6.  Estimated 104.247   Actual 84.0     within 25%
+    7.  Estimated 23.247    Actual 23.20    within 10%
+    8.  Estimated 149.104   Actual 130.     within 25%
+    9.  Estimated 188.947   Actual 116.00
+    10. Estimated 72.047    Actual 72.0     within 10%
+    11. Estimated 194.652   Actual 258.70   within 25%
+    12. Estimated 221.808   Actual 230.70   within 10%
+    13. Estimated 154.165   Actual 157.00   within 10%
+    14. Estimated 214.595   Actual 246.90   within 25%
+    15. Estimated 71.185    Actual 69.9     within 10%
+
+    MMRE: 0.274
+    PRED(50): 12/15 (0.800)
+    PRED(25): 10/15 (0.667)
+    PRED(10): 5/15 (0.333)
+
+Kitchenham:
+    Best solution fitness: 0.22
+    Best solution: ((First.estimate - (First.estimate / Actual.duration)) - 62.004747863765104) - ((log First.estimate) / (30.58957147216354 - (First.estimate / (Actual.duration / (log First.estimate)))))
+    Depth of chrom: 6
+
+    01.     Estimated 425.080   Actual 485.00       within 25%
+    02.     Estimated 1293.707  Actual 990.00       within 50%
+    03.     Estimated 8168.444  Actual 13635.00     within 50%
+    04.     Estimated 1526.281  Actual 1576.00      within 10%
+    05.     Estimated 3754.377  Actual 3826.00      within 10%
+    06.     Estimated 813.349   Actual 1079.00      within 25%
+    07.     Estimated 2819.441  Actual 2224.00      within 50%
+    08.     Estimated 1727.871  Actual 1698.00      within 10%
+    09.     Estimated 1095.583  Actual 1173.00      within 10%
+    010.    Estimated 819.318   Actual 1401.00      within 50%
+    011.    Estimated 2052.575  Actual 2170.00      within 10%
+    012.    Estimated 1312.264  Actual 1122.00      within 25%
+    013.    Estimated 1069.681  Actual 1024.00      within 10%
+    014.    Estimated 1826.107  Actual 1832.00      within 10%
+    015.    Estimated 1269.139  Actual 1016.00      within 25%
+    016.    Estimated 375.490   Actual 322.00       within 25%
+    017.    Estimated 441.812   Actual 580.00       within 25%
+    018.    Estimated 886.691   Actual 1003.00      within 25%
+    019.    Estimated 313.125   Actual 380.00       within 25%
+    020.    Estimated 153.187   Actual 220.00       within 50%
+    021.    Estimated 2809.355  Actual 2356.00      within 25%
+    022.    Estimated 1416.365  Actual 1388.00      within 10%
+    023.    Estimated 1589.791  Actual 1066.00      within 50%
+    024.    Estimated 2055.771  Actual 2860.00      within 50%
+    025.    Estimated 1104.654  Actual 1143.00      within 10%
+    026.    Estimated 2129.356  Actual 1431.00      within 50%
+    027.    Estimated 2163.236  Actual 1868.00      within 25%
+    028.    Estimated 1854.131  Actual 2172.00      within 25%
+    029.    Estimated 5553.282  Actual 8509.00      within 50%
+    030.    Estimated 3858.106  Actual 5927.00      within 50%
+    031.    Estimated 1921.597  Actual 2663.00      within 50%
+    032.    Estimated 2205.603  Actual 1425.00
+    033.    Estimated 3227.111  Actual 3504.00      within 10%
+    034.    Estimated 722.048   Actual 652.00       within 25%
+    035.    Estimated 3847.497  Actual 7649.00      within 50%
+    036.    Estimated 6730.784  Actual 5927.00      within 25%
+    037.    Estimated 4881.028  Actual 6607.00      within 50%
+    038.    Estimated 1228.791  Actual 2591.00
+    039.    Estimated 5604.088  Actual 4494.00      within 25%
+    040.    Estimated 5160.634  Actual 4824.00      within 10%
+    041.    Estimated 3859.697  Actual 5094.00      within 25%
+    042.    Estimated 2491.395  Actual 3088.00      within 25%
+    043.    Estimated 1450.951  Actual 892.00
+    044.    Estimated 948.325   Actual 750.00       within 50%
+    045.    Estimated 5553.513  Actual 5646.00      within 10%
+    046.    Estimated 1462.904  Actual 1532.00      within 10%
+    047.    Estimated 1460.017  Actual 1280.00      within 25%
+    048.    Estimated 248.358   Actual 313.00       within 25%
+    049.    Estimated 343.839   Actual 339.00       within 10%
+    050.    Estimated 669.062   Actual 583.00       within 25%
+    051.    Estimated 699.006   Actual 726.00       within 10%
+    052.    Estimated 1674.948  Actual 1939.00      within 25%
+    053.    Estimated 614.134   Actual 669.00       within 10%
+    054.    Estimated 1238.649  Actual 1413.00      within 25%
+    055.    Estimated 3496.135  Actual 4115.00      within 25%
+    056.    Estimated 2842.368  Actual 4009.00      within 50%
+    057.    Estimated 620.119   Actual 630.00       within 10%
+    058.    Estimated 657.815   Actual 718.00       within 10%
+    059.    Estimated 1759.122  Actual 1584.00      within 25%
+    060.    Estimated 4896.355  Actual 5816.00      within 25%
+    061.    Estimated 2546.973  Actual 2037.00      within 50%
+    062.    Estimated 2420.302  Actual 1428.00
+    063.    Estimated 2154.411  Actual 1252.00
+    064.    Estimated 916.778   Actual 655.00       within 50%
+    065.    Estimated 1572.024  Actual 1318.00      within 25%
+    066.    Estimated 997.742   Actual 995.00       within 10%
+    067.    Estimated 2198.511  Actual 2265.00      within 10%
+    068.    Estimated 591.396   Actual 654.00       within 10%
+    069.    Estimated 57.579    Actual 718.00
+    070.    Estimated 1609.837  Actual 2029.00      within 25%
+    071.    Estimated 2273.674  Actual 1650.00      within 50%
+    072.    Estimated 2238.990  Actual 2223.00      within 10%
+    073.    Estimated 7767.823  Actual 8600.00      within 10%
+    074.    Estimated 1928.920  Actual 1884.00      within 10%
+    075.    Estimated 3630.669  Actual 5359.00      within 50%
+    076.    Estimated 1199.974  Actual 1159.00      within 10%
+    077.    Estimated 373.021   Actual 437.00       within 25%
+    078.    Estimated 744.875   Actual 570.00       within 50%
+    079.    Estimated 819.700   Actual 502.00
+    080.    Estimated 2399.575  Actual 1877.00      within 50%
+    081.    Estimated 732.906   Actual 1693.00
+    082.    Estimated 2092.697  Actual 3319.00      within 50%
+    083.    Estimated 1694.270  Actual 1557.00      within 10%
+    084.    Estimated 692.668   Actual 557.00       within 25%
+    085.    Estimated 2513.166  Actual 3050.00      within 25%
+    086.    Estimated 1070.983  Actual 1113.00      within 10%
+    087.    Estimated 3988.504  Actual 5456.00      within 50%
+    088.    Estimated 864.251   Actual 763.00       within 25%
+    089.    Estimated 2019.115  Actual 2203.00      within 10%
+    090.    Estimated 3202.627  Actual 3483.00      within 10%
+    091.    Estimated 4478.827  Actual 2393.00
+    092.    Estimated 14127.455 Actual 15673.00     within 10%
+    093.    Estimated 5981.399  Actual 2972.00
+    094.    Estimated 3956.700  Actual 4068.00      within 10%
+    095.    Estimated 586.384   Actual 698.00       within 25%
+    096.    Estimated 750.221   Actual 676.00       within 25%
+    097.    Estimated 6260.887  Actual 6307.00      within 10%
+    098.    Estimated 235.768   Actual 219.00       within 10%
+    099.    Estimated 249.458   Actual 254.00       within 10%
+    100.    Estimated 685.384   Actual 324.00
+    101.    Estimated 834.007   Actual 874.00       within 10%
+    102.    Estimated 79723.578 Actual 113930.00    within 50%
+    103.    Estimated 1529.618  Actual 1722.00      within 25%
+    104.    Estimated 1632.222  Actual 1660.00      within 10%
+    105.    Estimated 523.391   Actual 693.00       within 25%
+    106.    Estimated 2087.578  Actual 1455.00      within 50%
+    107.    Estimated 920.577   Actual 988.00       within 10%
+    108.    Estimated 1794.683  Actual 1940.00      within 10%
+    109.    Estimated 2446.619  Actual 2408.00      within 10%
+    110.    Estimated 2514.080  Actual 1737.00      within 50%
+    111.    Estimated 12588.398 Actual 12646.00     within 10%
+    112.    Estimated 4103.485  Actual 4414.00      within 10%
+    113.    Estimated 2164.524  Actual 2480.00      within 25%
+    114.    Estimated 907.008   Actual 980.00       within 10%
+    115.    Estimated 3643.145  Actual 3189.00      within 25%
+    116.    Estimated 2836.413  Actual 2895.00      within 10%
+    117.    Estimated 294.214   Actual 322.00       within 10%
+    118.    Estimated 3618.789  Actual 3555.00      within 10%
+    119.    Estimated 136.128   Actual 570.00
+    120.    Estimated 502.272   Actual 464.00       within 10%
+    121.    Estimated 1581.324  Actual 1742.00      within 10%
+    122.    Estimated 711.951   Actual 896.00       within 25%
+    123.    Estimated 8583.455  Actual 8656.00      within 10%
+    124.    Estimated 3668.218  Actual 3966.00      within 10%
+    125.    Estimated 642.652   Actual 989.00       within 50%
+    126.    Estimated 789.328   Actual 585.00       within 50%
+    127.    Estimated 2357.156  Actual 1860.00      within 50%
+    128.    Estimated 4029.674  Actual 5249.00      within 25%
+    129.    Estimated 5155.753  Actual 5192.00      within 10%
+    130.    Estimated 2777.177  Actual 1832.00
+    131.    Estimated 1158.614  Actual 928.00       within 25%
+    132.    Estimated 2495.574  Actual 2570.00      within 10%
+    133.    Estimated 1257.041  Actual 1328.00      within 10%
+    134.    Estimated 3298.407  Actual 2964.00      within 25%
+    135.    Estimated 1449.030  Actual 1304.00      within 25%
+    136.    Estimated 2196.360  Actual 1631.00      within 50%
+    137.    Estimated 2715.249  Actual 955.00
+    138.    Estimated 299.131   Actual 286.00       within 10%
+    139.    Estimated 2137.972  Actual 1432.00      within 50%
+    140.    Estimated 266.886   Actual 321.00       within 25%
+    141.    Estimated 798.671   Actual 593.00       within 50%
+    142.    Estimated 377.652   Actual 302.00       within 50%
+    143.    Estimated 2657.797  Actual 2634.00      within 10%
+    144.    Estimated 970.778   Actual 1040.00      within 10%
+    145.    Estimated 1315.946  Actual 887.00       within 50%
+
+    MMRE: 0.227
+    PRED(50): 131 / 145 (0.903)
+    PRED(25): 97 / 145 (0.669)
+    PRED(10): 55 / 145 (0.379)
 
 Miyazaki:
     Attributes: KLOC, FORM, FILE

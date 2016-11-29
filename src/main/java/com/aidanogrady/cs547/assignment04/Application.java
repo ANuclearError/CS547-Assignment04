@@ -33,6 +33,8 @@ public class Application {
             DataSet dataSet = DataParser.parseFile(file, attributes, effort);
             if (dataSet != null)
                 run(dataSet);
+            else
+                System.out.println("Problem creating file, cannot continue");
         }
     }
 
