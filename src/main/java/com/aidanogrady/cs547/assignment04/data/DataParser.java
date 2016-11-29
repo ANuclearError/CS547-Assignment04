@@ -15,7 +15,8 @@ public class DataParser {
     private static final String ATTRIBUTE = "@attribute ";
     private static final String DATA = "@data";
 
-    public static DataSet parseFile(String fileName, List<String> attributes) {
+    public static DataSet parseFile(String fileName, List<String> attributes,
+                                    String effortName) {
         File file = new File(fileName);
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -41,6 +42,7 @@ public class DataParser {
             for (String attribute : attributes) {
                 indices.add(attr.indexOf(attribute));
             }
+            int effortIndex = attr.indexOf(effortName);
 
             if (name == null || attr.isEmpty())
                 return null;
@@ -51,7 +53,7 @@ public class DataParser {
             while (line != null) {
                 if (!line.startsWith("%")) {
                     String[] split = line.split(",");
-                    Double effort = Double.parseDouble(split[split.length - 1]);
+                    Double effort = Double.parseDouble(split[effortIndex]);
                     DataRecord record = new DataRecord(effort);
 
                     for (Integer index : indices) {

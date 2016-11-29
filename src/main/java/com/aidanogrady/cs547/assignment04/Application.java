@@ -9,7 +9,6 @@ import org.jgap.gp.IGPProgram;
 import org.jgap.gp.impl.GPGenotype;
 import org.jgap.gp.terminal.Variable;
 
-import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,10 +26,11 @@ public class Application {
         if (args.length < 2) {
             System.out.println("USAGE: <file> <attributes>...");
         } else {
-            String fileName = args[0];
-            String[] attr = Arrays.copyOfRange(args, 1, args.length);
+            String file = args[0];
+            String[] attr = Arrays.copyOfRange(args, 1, args.length - 1);
+            String effort = args[args.length - 1];
             List<String> attributes = Arrays.asList(attr);
-            DataSet dataSet = DataParser.parseFile(fileName, attributes);
+            DataSet dataSet = DataParser.parseFile(file, attributes, effort);
             if (dataSet != null)
                 run(dataSet);
         }
