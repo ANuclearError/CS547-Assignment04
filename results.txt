@@ -26,40 +26,40 @@ Kemerer:
     PRED(10): 5/15 (0.333)
 
 Albrecht:
-    Attributes: AdjFP
-    Best Fitness: 0.37
-    Best Solution: (AdjFP / 48.06688177596948) - ((AdjFP / ((AdjFP / 66.78570121890209) ^ (AdjFP / 65.42992137004208))) / (Exp((47.44671011959201 / 70.19716283837693))))
+    Attributes: Inquiry, RawFPcounts, FPAdj
+    Best Fitness: 0.33
+    Best Solution: ((((RawFPcounts / 33.67506910738575) + (Inquiry ^ FPAdj)) / 24.462619324833) * (RawFPcounts / 60.31052221235859)) - FPAdj
     Depth of chrom: 5
 
-    1.  Estimated 36.408    Actual 102.40
-    2.  Estimated 39.570    Actual 105.20
-    3.  Estimated 8.903     Actual 11.10    within 25%
-    4.  Estimated 15.790    Actual 21.10    within 50%
-    5.  Estimated 8.966     Actual 28.80
-    6.  Estimated 5.608     Actual 10.00    within 50%
-    7.  Estimated 1.159     Actual 8.00
-    8.  Estimated 5.785     Actual 4.90     within 25%
-    9.  Estimated 14.147    Actual 12.90    within 10%
-    10. Estimated 16.519    Actual 19.0     within 25%
-    11. Estimated 10.652    Actual 10.8     within 10%
-    12. Estimated 2.851     Actual 2.90     within 10%
-    13. Estimated 8.674     Actual 7.50     within 25%
-    14. Estimated 14.189    Actual 12.0     within 25%
-    15. Estimated 1.569     Actual 4.10
-    16. Estimated 10.652    Actual 15.8     within 50%
-    17. Estimated 12.607    Actual 18.3     within 50%
-    18. Estimated 8.318     Actual 8.90     within 10%
-    19. Estimated 25.693    Actual 38.10    within 50%
-    20. Estimated 32.704    Actual 61.20    within 50%
-    21. Estimated 10.402    Actual 3.60
-    22. Estimated 14.438    Actual 11.80    within 25%
-    23. Estimated 0.483     Actual 0.50     within 10%
-    24. Estimated 4.812     Actual 6.10     within 25%
+    1.	Estimated 84.364	Actual 102.40   within 25%
+    2.	Estimated 97.598	Actual 105.20   within 10%
+    3.	Estimated 4.961	    Actual 11.10
+    4.	Estimated 21.640	Actual 21.10    within 10%
+    5.	Estimated 4.041	    Actual 28.80
+    6.	Estimated 2.116	    Actual 10.00
+    7.	Estimated 0.522	    Actual 8.00
+    8.	Estimated 3.791	    Actual 4.90	    within 25%
+    9.	Estimated 15.315	Actual 12.90	within 25%
+    10.	Estimated 23.114	Actual 19.00	within 25%
+    11.	Estimated 11.774	Actual 10.80	within 10%
+    12.	Estimated 2.008	    Actual 2.90     within 50%
+    13.	Estimated 7.504	    Actual 7.50     within 10%
+    14.	Estimated 19.047	Actual 12.00
+    15.	Estimated 1.729	    Actual 4.10
+    16.	Estimated 11.414	Actual 15.80	within 50%
+    17.	Estimated 10.754	Actual 18.30	within 50%
+    18.	Estimated 8.213	    Actual 8.90	    within 10%
+    19.	Estimated 35.966	Actual 38.10	within 10%
+    20.	Estimated 65.672	Actual 61.20	within 10%
+    21.	Estimated 4.898	    Actual 3.60	    within 50%
+    22.	Estimated 8.694	    Actual 11.80	within 50%
+    23.	Estimated 0.516	    Actual 0.50	    within 10%
+    24.	Estimated 0.558	    Actual 6.10
 
-    MMRE: 0.373
-    PRED(50): 18/24 (0.750)
-    PRED(25): 12/24 (0.500)
-    PRED(10): 5/24 (0.208)
+    MMRE: 0.336
+    PRED(50): 17 / 24 (0.708)
+    PRED(25): 12 / 24 (0.500)
+    PRED(10): 8 / 24 (0.333)
 
 Miyazaki:
     Attributes: KLOC, FORM, FILE
@@ -67,7 +67,7 @@ Miyazaki:
     Best Solution: KLOC / (Exp(((FORM / (Exp(((FILE / (Exp((26.290494138877037 / (KLOC - 54.23873477665627))))) / 57.83258014408791)))) / 43.89535718647683)))
     Depth of chrom: 10
 
-    1.  Estimated 44.198    Actual 59.50     within 50%
+    1.  Estimated 44.198    Actual 59.50    within 50%
     2.  Estimated 29.827    Actual 85.00
     3.  Estimated 33.943    Actual 31.50    within 10%
     4.  Estimated 39.252    Actual 58.90    within 50%
@@ -75,7 +75,7 @@ Miyazaki:
     6.  Estimated 42.944    Actual 67.30    within 50%
     7.  Estimated 8.309     Actual 8.20     within 10%
     8.  Estimated 12.120    Actual 13.90    within 25%
-    9.  Estimated 24.593    Actual `36.00    within 50%
+    9.  Estimated 24.593    Actual `36.00   within 50%
     10. Estimated 40.765    Actual 89.50
     11. Estimated 36.649    Actual 39.50    within 10%
     12. Estimated 40.408    Actual 27.50    within 50%
@@ -84,11 +84,11 @@ Miyazaki:
     15. Estimated 47.575    Actual 48.00    within 10%
     16. Estimated 26.437    Actual 18.00    within 50%
     17. Estimated 37.913    Actual 43.80    within 25%
-    18. Estimated 8.179 Actual 7.10         within 25%
+    18. Estimated 8.179     Actual 7.10     within 25%
     19. Estimated 18.412    Actual 20.60    within 25%
     20. Estimated 30.850    Actual 32.70    within 10%
     21. Estimated 11.800    Actual 9.00     within 50%
-    22. Estimated 6.469 Actual 7.50         within 25%
+    22. Estimated 6.469     Actual 7.50     within 25%
     23. Estimated 37.346    Actual 37.20    within 10%
     24. Estimated 46.518    Actual 59.10    within 25%
     25. Estimated 62.389    Actual 54.00    within 25%

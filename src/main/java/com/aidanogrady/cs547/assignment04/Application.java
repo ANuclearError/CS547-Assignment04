@@ -83,10 +83,11 @@ public class Application {
         System.out.format("MMRE: %.3f\n", (mmre));
         for (int i = 0; i < pred.length; i++) {
             percent[i] *= 100;
-            System.out.format("PRED(%.0f): %.3f / %d\n",
+            System.out.format("PRED(%.0f): %.0f / %d (%.3f)\n",
                     percent[i],
                     pred[i],
-                    size);
+                    size,
+                    pred[i] / size);
         }
     }
 }
