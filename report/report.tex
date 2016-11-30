@@ -38,6 +38,72 @@ to other methods that can be used to estimate costs such as linear regression.
 
 \section{Background} % (fold)
 \label{sec:background}
+There were around 15 .arff files available for use as part of this assignment.
+Of those, I settled on using the \emph{Albrecht, Kemerer} \& \emoh{Miyazaki}
+datasets as part of my work. These three were chosen due to their relative
+straightforwardness compared to other files. These datasets were also used by
+Dolado \cite{Dolado200161} in a related study, which included results obtained
+from his own genetic programming experimentation (providing me with references
+to help understand the datasets). Knowing that I could use his results as a
+reference point helped in ensuring that I stayed on the right track with this
+problem.
+
+\subsection{Albrecht} % (fold)
+\label{sub:albrecht}
+With the Albrecht dataset, I was able to understand the `function point' concept
+used in various datasets. The original paper by Albrecht \& Gaffney
+\cite{1703110}, showed how the \emph{RawFPcounts} attribute was calculated
+from the \emph{Input, Output, Inquiry \& File} attributes, with a multiplier
+then provided as well to add a modified value as well. With this dataset, I
+decided to ignore the adjusted figure, instead opting to include the raw
+function point value and its multiplier. I also opted to include the attributes
+that make up the function points value, in case that the function points alone
+could not provide the most accurate prediction.
+
+Included: \emph{Input, Output, Inquiry, File, FPAdj, RawFPcounts}
+
+Excluded: \emph{AdjFP}
+
+Effort: \emph{Effort}
+% subsection albrecht (end)
+
+\subsection{Kemerer} % (fold)
+\label{sub:kemerer}
+The Kemerer dataset also included both raw and adjusted function point counts,
+so the adjusted value was again ignored for the sake of consistency. The
+\emph{ID} was ignored due to only being an identifier.
+
+This dataset also included two attributes, \emph{Language} \& \emph{Hardware},
+that acted as enumerations. This had to be addressed, since while these are going
+to be factors in the real world, I was not certain whether I could trust the
+enumerated values to be reliable in providing cost estimations. Thus, these were
+also excluded. \emph{Duration} \emph{KSLOC} were difficult to decide on, due to
+uncertainty as to their appropriateness. Eventually, I decided to exclude them,
+due to this uncertainty.
+
+Included: \emph{RAWFP}
+
+Excluded: \emph{ID, Language, Hardware, Duration, KSLOC, AdjFP}
+
+Effort: \emph{EffortMM}
+% subsection kemerer (end)
+
+\subsection{Miyazaki} % (fold)
+\label{sub:miyazaki}
+As with \emph{Kemerer}, the \emph{ID} and \emph{KLOC} attributes were excluded
+for the same reasons. This meant that the only real decision to be made with
+this set is which group of three attributes to choose. From reading the original
+source \cite[Section~4.2]{MIYAZAKI19943}, I decided it was best to try with both
+and choose whichever performed better with genetic programming. This became
+\emph{SCRN, FORM} and \emph{FILE}. It may have been worth investigating some
+combinations between them as well however.
+
+Included: \emph{SCRN, FORM, FILE}
+
+Excluded: \emph{ID, KLOC, ESCRN, EFORM, EFILE}
+
+Effort: \emph{MM}
+% subsection miyazaki (end)
 % section background (end)
 
 \section{Implementation Details} % (fold)
@@ -51,4 +117,6 @@ to other methods that can be used to estimate costs such as linear regression.
 \section{Comparisons} % (fold)
 \label{sec:comparisons}
 % section comparisons (end)
+\bibliographystyle{plain}
+\bibliography{report} 
 \end{document}

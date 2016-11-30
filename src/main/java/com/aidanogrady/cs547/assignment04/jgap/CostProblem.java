@@ -65,7 +65,7 @@ public class CostProblem extends GPProblem {
                 new Pow(config, CommandGene.DoubleClass),
                 new Log(config, CommandGene.DoubleClass),
                 new Exp(config, CommandGene.DoubleClass),
-                new Terminal(config, CommandGene.DoubleClass, 0, 100, false)
+                new Terminal(config, CommandGene.DoubleClass, 0, 1, false)
         };
 
         int size = varSet.length + functSet.length;
