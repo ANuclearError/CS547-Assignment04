@@ -42,9 +42,12 @@ public class Application {
         GPProblem problem = new CostProblem(dataSet);
         GPGenotype gp = problem.create();
         gp.setVerboseOutput(true);
-        gp.evolve(500);
+        double start = System.currentTimeMillis();
+        gp.evolve(100);
+        double duration = (System.currentTimeMillis() - start) / 1000;
         System.out.println();
         System.out.println("Solving " + dataSet.getName() + " dataset");
+        System.out.println("Time taken " + duration + " (s)");
         gp.outputSolution(gp.getAllTimeBest());
         System.out.println();
 
