@@ -13,3 +13,11 @@ Aidan O'Grady (201218150) - wlb12153@uni.strath.ac.uk
 This project is a submission for Assignment 04 for class CS547 Advanced Topics
 in Computer Science for the MEng Computer Science course in the University of
 Strathclyde, Glasgow.
+
+## How to Run
+```java -jar AidanOGrady-CS547_04.jar <file> <attr1> [<attr2>...] <effort>```
+
+## Output
+The console will display the evolution of the program population, before finally
+displaying information on the best program produced and executing this program
+on the given dataset.
