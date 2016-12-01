@@ -1,10 +1,11 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage[parfill]{parskip}
-\usepackage[margin=0.66in]{geometry}
+\usepackage[margin=0.67in]{geometry}
 \usepackage{url}
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{tabularx}
 
 \lstdefinestyle{snippet}{
     numbers = left,
@@ -187,7 +188,8 @@ as follows:
 Where \(n\) is the number of records in the dataset, \(actual_i\) is the effort
 contained in the file for record \(i\) and \(estimated_i\) is the effort
 calculated by the program. The fitness function ensures that the variables
-are correctly set before each execution as well.
+are correctly set before each execution as well. The lower the fitness value,
+the better it is.
 % subsubsection costfitnessfunction (end)
 % subsection jgap (end)
 
@@ -211,6 +213,73 @@ justify the much larger length of time the evolution took.
 
 \section{Results} % (fold)
 \label{sec:results}
+Constants have been rounded to two decimal places.
+
+\subsection{Albrecht Results} % (fold)
+\label{sub:albrecht_results}
+Number of records: 24
+
+GP:
+\(((RawFPcounts / 66.2) + ((log (log (Output * (log File)))) +
+(FPAdj ^ {Inquiry}))) * (log (log File))\)
+
+LR:
+\(0.16 * Input + 0.33 * Output + 0.50 * Inquiry + 0.35 * File - 14.87\)
+
+\begin{tabularx}{\textwidth}{| l | X | X |}
+\hline
+ & Genetic Program & Linear Regression \\
+\hline
+MMRE & 0.351 & 0.883 \\
+Time (s) & 19.426 & 0.01 \\
+PRED(10) & 8 & 5 \\
+PRED(25) & 13 & 9 \\
+PRED(50) & 12 & 8 \\
+\hline
+\end{tabularx}
+% subsection albrecht_results (end)
+
+\subsection{Kemerer Results} % (fold)
+\label{sub:kemerer_results}
+Number of records: 15
+
+GP: \(RAWFP \div Duration + 5 \times Duration \div RAWFP\)
+
+LR: \(0.33 \times RAWFP - 111.37\)
+
+\begin{tabularx}{\textwidth}{| l | X | X |}
+\hline
+ & Genetic Program & Linear Regression \\
+\hline
+MMRE & 0.351 & 0.883 \\
+Time (s) & 19.426 & 0.01 \\
+PRED(10) & 8 & 5 \\
+PRED(25) & 13 & 9 \\
+PRED(50) & 12 & 8 \\
+\hline
+\end{tabularx}
+% subsection kemerer_results (end)
+
+\subsection{Miyazaki Results} % (fold)
+\label{sub:miyazaki_results}
+Number of records: 48
+
+GP: \((Exp(0.38)) + ((((Exp((Exp(0.5)))) + FORM) / (1.27 + SCRN)) + SCRN)\)
+
+LR: \(0.4445 * SCRN + 0.84 * FORM + 3.59 * FILE - 71.13\)
+
+\begin{tabularx}{\textwidth}{| l | X | X |}
+\hline
+ & Genetic Program & Linear Regression \\
+\hline
+MMRE & 0.354 & 0.874 \\
+Time (s) & 22.039 & 0.01 \\
+PRED(10) & 11 & 2 \\
+PRED(25) & 19 & 8 \\
+PRED(50) & 27 & 13 \\
+\hline
+\end{tabularx}
+% subsection miyazaki_results (end)
 % section results (end)
 
 \section{Comparisons} % (fold)
