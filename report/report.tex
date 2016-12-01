@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{tabularx}
+\usepackage{subfiles}
 
 \lstdefinestyle{snippet}{
     numbers = left,
@@ -116,7 +117,8 @@ The implementation of solving this problem came under three main section;
 parsing the datasets, storing the values of these datasets into classes, and the
 genetic programming parts as well. The genetic programming was handled with the
 JGAP framework, meaning I was only required to implement the fitness function
-and problem scope for it as well.
+and problem scope for it as well. The linear regression was performed using
+Weka.
 
 \subsection{Storing Data} % (fold)
 \label{sub:storing_data}
@@ -213,7 +215,11 @@ justify the much larger length of time the evolution took.
 
 \section{Results} % (fold)
 \label{sec:results}
-Constants have been rounded to two decimal places.
+These results are summation of the overall performance of JGap and Weka on the
+three datasets. Detailed results can be found in Appendix
+\ref{sec:detailed_results}, showing each data record's performance.
+Constants have been rounded to two decimal places, with minimal simplification
+of the returned programs applied.
 
 \subsection{Albrecht Results} % (fold)
 \label{sub:albrecht_results}
@@ -228,13 +234,13 @@ LR:
 
 \begin{tabularx}{\textwidth}{| l | X | X |}
 \hline
- & Genetic Program & Linear Regression \\
+ & \textbf{Genetic Program} & \textbf{Linear Regression} \\
 \hline
-MMRE & 0.351 & 0.883 \\
-Time (s) & 19.426 & 0.01 \\
-PRED(10) & 8 & 5 \\
-PRED(25) & 13 & 9 \\
-PRED(50) & 12 & 8 \\
+\emph{MMRE} & 0.351 & 0.883 \\
+\emph{Time (s)} & 19.426 & 0.01 \\
+\emph{PRED(10)} & 8 & 5 \\
+\emph{PRED(25)} & 13 & 9 \\
+\emph{PRED(50)} & 12 & 8 \\
 \hline
 \end{tabularx}
 % subsection albrecht_results (end)
@@ -243,19 +249,20 @@ PRED(50) & 12 & 8 \\
 \label{sub:kemerer_results}
 Number of records: 15
 
-GP: \(RAWFP \div Duration + 5 \times Duration \div RAWFP\)
+GP: \((RAWFP \div Duration) + (5 \times Duration \div ((RAWFP \div Duration)
+\div Duration))\)
 
 LR: \(0.33 \times RAWFP - 111.37\)
 
 \begin{tabularx}{\textwidth}{| l | X | X |}
 \hline
- & Genetic Program & Linear Regression \\
+ & \textbf{Genetic Program} & \textbf{Linear Regression} \\
 \hline
-MMRE & 0.351 & 0.883 \\
-Time (s) & 19.426 & 0.01 \\
-PRED(10) & 8 & 5 \\
-PRED(25) & 13 & 9 \\
-PRED(50) & 12 & 8 \\
+\emph{MMRE} & 0.351 & 0.883 \\
+\emph{Time (s)} & 19.426 & 0.01 \\
+\emph{PRED(10)} & 8 & 5 \\
+\emph{PRED(25)} & 13 & 9 \\
+\emph{PRED(50)} & 12 & 8 \\
 \hline
 \end{tabularx}
 % subsection kemerer_results (end)
@@ -270,13 +277,13 @@ LR: \(0.4445 * SCRN + 0.84 * FORM + 3.59 * FILE - 71.13\)
 
 \begin{tabularx}{\textwidth}{| l | X | X |}
 \hline
- & Genetic Program & Linear Regression \\
+ & \textbf{Genetic Program} & \textbf{Linear Regression} \\
 \hline
-MMRE & 0.354 & 0.874 \\
-Time (s) & 22.039 & 0.01 \\
-PRED(10) & 11 & 2 \\
-PRED(25) & 19 & 8 \\
-PRED(50) & 27 & 13 \\
+\emph{MMRE} & 0.354 & 0.874 \\
+\emph{Time (s)} & 22.039 & 0.01 \\
+\emph{PRED(10)} & 11 & 2 \\
+\emph{PRED(25)} & 19 & 8 \\
+\emph{PRED(50)} & 27 & 13 \\
 \hline
 \end{tabularx}
 % subsection miyazaki_results (end)
@@ -286,6 +293,16 @@ PRED(50) & 27 & 13 \\
 \label{sec:comparisons}
 % section comparisons (end)
 \newpage
+\appendix
+\section{Detailed Results} % (fold)
+\label{sec:detailed_results}
+The detailed results. Note that the ID field refers to the order of records in
+the file, not the ID attribute within the file.
+
+\subfile{res/albrecht}
+\subfile{res/kemerer}
+\subfile{res/miyazaki}
+% section detailed_results (end)
 \bibliographystyle{plain}
 \bibliography{report} 
 \end{document}
