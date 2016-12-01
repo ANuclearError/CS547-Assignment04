@@ -1,6 +1,6 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage[parfill]{parskip}
-\usepackage[margin=0.6in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage{url}
 \usepackage{listings}
 \usepackage{graphicx}
@@ -30,12 +30,10 @@ the problem of software cost estimation. When a software project is being
 proposed, there are multiple factors that can influence the eventual cost of the
 software. It can be difficult to determine which factors are more important to
 consider, making this an appropriate search challenge in the scope of genetic
-programming.
-
-Using datasets provided, the primary goal was to identify which factors should
-be taken into account to achieve the closest possible Prediction to the cost
-outlined in the file. Using various metrics, these estimations will be compared
-to other methods that can be used to estimate costs such as linear regression.
+programming. The goal of this assignment was to use genetic programming to
+evolve programs to estimate costs of given datasets based on the attributes
+with, comparing the resulting program's predictions with methods such as linear
+regression.
 % section introduction (end)
 
 \section{Background} % (fold)
@@ -212,7 +210,7 @@ then the number of improvements from generations 101 to 500 was too small to
 justify the much larger length of time the evolution took.
 % subsection application (end)
 % section implementation_details (end)
-
+\newpage
 \section{Results} % (fold)
 \label{sec:results}
 These results are summation of the overall performance of JGap and Weka on the
