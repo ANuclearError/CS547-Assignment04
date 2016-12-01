@@ -221,6 +221,10 @@ three datasets. Detailed results can be found in Appendix
 Constants have been rounded to two decimal places, with minimal simplification
 of the returned programs applied.
 
+The JGap configuration saw a population size of 5000, a maximum initial depth of
+10, and a maximum crossover depth of 20. The population was evolved for 100
+generations.
+
 \subsection{Albrecht Results} % (fold)
 \label{sub:albrecht_results}
 Number of records: 24
@@ -237,10 +241,12 @@ LR:
  & \textbf{Genetic Program} & \textbf{Linear Regression} \\
 \hline
 \emph{MMRE} & 0.351 & 0.883 \\
+\hline
+\emph{PRED(10)} & 08/24 (33.3\%) & 05/24 (20.8\%) \\
+\emph{PRED(25)} & 13/24 (54.2\%) & 09/24 (37.5\%) \\
+\emph{PRED(50)} & 18/24 (75.0\%) & 12/24 (50.0\%) \\
+\hline
 \emph{Time (s)} & 19.426 & 0.01 \\
-\emph{PRED(10)} & 8 & 5 \\
-\emph{PRED(25)} & 13 & 9 \\
-\emph{PRED(50)} & 12 & 8 \\
 \hline
 \end{tabularx}
 % subsection albrecht_results (end)
@@ -258,11 +264,13 @@ LR: \(0.33 \times RAWFP - 111.37\)
 \hline
  & \textbf{Genetic Program} & \textbf{Linear Regression} \\
 \hline
-\emph{MMRE} & 0.351 & 0.883 \\
+\emph{MMRE} & 0.354 & 0.874 \\
+\hline
+\emph{PRED(10)} & 04/15 (26.7\%) & 00/15 (00.0\%) \\
+\emph{PRED(25)} & 06/15 (40.0\%) & 03/15 (20.0\%) \\
+\emph{PRED(50)} & 10/15 (66.7\%) & 06/15 (40.0\%) \\
+\hline
 \emph{Time (s)} & 19.426 & 0.01 \\
-\emph{PRED(10)} & 8 & 5 \\
-\emph{PRED(25)} & 13 & 9 \\
-\emph{PRED(50)} & 12 & 8 \\
 \hline
 \end{tabularx}
 % subsection kemerer_results (end)
@@ -279,11 +287,13 @@ LR: \(0.4445 * SCRN + 0.84 * FORM + 3.59 * FILE - 71.13\)
 \hline
  & \textbf{Genetic Program} & \textbf{Linear Regression} \\
 \hline
-\emph{MMRE} & 0.354 & 0.874 \\
+\emph{MMRE} & 0.410 & 1.942 \\
+\hline
+\emph{PRED(10)} & 11/48 (22.9\%) & 02/48 (04.2\%) \\
+\emph{PRED(25)} & 19/48 (39.6\%) & 08/48 (16.7\%) \\
+\emph{PRED(50)} & 27/48 (56.3\%) & 13/48 (27.1\%) \\
+\hline
 \emph{Time (s)} & 22.039 & 0.01 \\
-\emph{PRED(10)} & 11 & 2 \\
-\emph{PRED(25)} & 19 & 8 \\
-\emph{PRED(50)} & 27 & 13 \\
 \hline
 \end{tabularx}
 % subsection miyazaki_results (end)
@@ -291,6 +301,10 @@ LR: \(0.4445 * SCRN + 0.84 * FORM + 3.59 * FILE - 71.13\)
 
 \section{Comparisons} % (fold)
 \label{sec:comparisons}
+The immediate takeaway from the overall results is that the extra time taken for
+JGap to genetically evolve its solution provides much stronger, and more complex
+solutions than those provided by Weka. MMRE and PRED results are consistently
+better for all datasets and all values for PRED.
 % section comparisons (end)
 \newpage
 \appendix
