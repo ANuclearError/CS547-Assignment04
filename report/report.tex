@@ -77,12 +77,13 @@ so the adjusted value was again ignored for the sake of consistency. The
 \emph{ID} was ignored due to only being an identifier.
 
 This dataset also included two attributes, \emph{Language} \& \emph{Hardware},
-that acted as enumerations. This had to be addressed, since while these are going
-to be factors in the real world, I was not certain whether I could trust the
+that acted as enumerations. This had to be addressed, since while these would be
+factors in the real world, I was not certain whether I could trust the
 enumerated values to be reliable in providing cost estimations. Thus, these were
-also excluded. \emph{Duration} \emph{KSLOC} were difficult to decide on, due to
-uncertainty as to their appropriateness. Eventually, I decided to exclude them,
-due to this uncertainty.
+also excluded. \emph{Duration} \emph{KSLOC} were excluded after noticing that
+the Dolado paper did not include them. Running tests with these attributes found
+that \emph{KSLOC} would achieve meaningful improvements while \emph{Duration}'s
+inclusion did not cause significant change.
 
 Included: \emph{RAWFP}
 
@@ -228,8 +229,8 @@ generations.
 Number of records: 24
 
 GP:
-\(((RawFPcounts / 66.2) + ((log (log (Output * (log File)))) +
-(FPAdj ^ {Inquiry}))) * (log (log File))\)
+\(((RawFPcounts / 66.2) + ((log (log (Output * log (File)))) +
+(FPAdj ^ {Inquiry}))) * log (log (File))\)
 
 LR:
 \(0.16 * Input + 0.33 * Output + 0.50 * Inquiry + 0.35 * File - 14.87\)
@@ -253,8 +254,8 @@ LR:
 \label{sub:kemerer_results}
 Number of records: 15
 
-GP: \((RAWFP \div Duration) + (5 \times Duration \div ((RAWFP \div Duration)
-\div Duration))\)
+GP: \(log(RAWFP^{(Exp((RAWFP / 54.47)))}) + (log (RAWFP) + log (RAWFP) + RAWFP +
+RAWFP) / 41.06)\)
 
 LR: \(0.33 \times RAWFP - 111.37\)
 
@@ -262,10 +263,10 @@ LR: \(0.33 \times RAWFP - 111.37\)
 \hline
  & \textbf{Genetic Program} & \textbf{Linear Regression} \\
 \hline
-\emph{MMRE} & 0.354 & 0.874 \\
+\emph{MMRE} & 0.342 & 0.874 \\
 \hline
 \emph{Pred(10)} & 04/15 (26.7\%) & 00/15 (00.0\%) \\
-\emph{Pred(25)} & 06/15 (40.0\%) & 03/15 (20.0\%) \\
+\emph{Pred(25)} & 07/15 (46.7\%) & 03/15 (20.0\%) \\
 \emph{Pred(50)} & 10/15 (66.7\%) & 06/15 (40.0\%) \\
 \hline
 \emph{Time (s)} & 19.426 & 0.01 \\
@@ -291,7 +292,7 @@ LR: \(0.4445 * SCRN + 0.84 * FORM + 3.59 * FILE - 71.13\)
 \emph{Pred(25)} & 19/48 (39.6\%) & 08/48 (16.7\%) \\
 \emph{Pred(50)} & 27/48 (56.3\%) & 13/48 (27.1\%) \\
 \hline
-\emph{Time (s)} & 22.039 & 0.01 \\
+\emph{Time (s)} & 22.039 & 0.02 \\
 \hline
 \end{tabularx}
 % subsection miyazaki_results (end)
@@ -301,60 +302,53 @@ LR: \(0.4445 * SCRN + 0.84 * FORM + 3.59 * FILE - 71.13\)
 \label{sec:comparisons}
 \subsection{Albrecht} % (fold)
 \label{sub:albrecht_comp}
-The \emph{Albrecht} dataset saw strong results with JGap, resulting in an MMRE
-score of 0.351. The Pred scores were strong across the board, with a third of
-the dataset having estimates within 10\% of the actual effort, and a majority
-falling within 25\%. This is a far stronger showing compared to Weka's linear
-regression, which saw an MMRE of 0.883 instead. Weka's Pred(10) and Pred(25)
-scores did not match up to those obtained by JGap, although the difference is
-not as wide as compared to that between the MMRE scores, suggesting that there
-is little correlation between them.
+\emph{Albrecht} saw strong results with a third of estimations being within 10\%
+and a majority being within 25\%, with an MMRE of 0.351 being achieved through
+GP. LR was far weaker, with an MMRE of 0.883 and only 20\% of estimations being
+within 10\% of the actual result (37.5\% within 25\%). Of the 24 records, 1 saw
+MRE (Magnitude of relative error) greater than 1 with GP, while LR had 8 of the
+24 being greater than one (including one with an MRE of 7.8). This combined with
+a few instances of negative predictions shows the poor performance of linear
+regression.
 
-In terms of the complexity of the programs produced by these methods, it is
-interesting to note that Weka relied on basic arithmetic functions, while
-JGap took full advantage of the full range of functions available. It is
-interesting to note that JGap felt that the \emph{Input} attribute was not
-required to obtain the best result, while JGap did not use the RawFPcount or
-FPAdj despite being available.
+The program produced through genetic algorithms requires 11 operations, while
+linear regression's required 8. GP did not use the \emph{Input} attribute while
+LR did not use \emph{RawFPCounts} or \emph{FPAdj}, showing that these results
+were influenced by these different focuses on attributes. In addition, GP used
+more complex operations such as \emph{log} and powers.
 % subsection albrecht_comp (end)
 
 \subsection{Kemerer} % (fold)
 \label{sub:kemerer_comp}
-The results obtained from the \emph{Kemerer} were similar to those obtained from
-\emph{Albrecht} when it comes to MMRE, despite having very different attributes
-available. However, the Pred scores and produced programs are different from the
-previous dataset.
+\emph{Kemerer} saw more strong performances, with GP predicting a quarter of
+records within 10\% of the actual cost, while LR failed to predict any within
+this range. GP also performed twice as well predicting within 25\% of the actual
+cost, again showing superiority. The MMRE scores again show GP having half the
+average of LR, being yet another victory. None of GP's predictions had MRE
+scores greater than 1, while 4 of LR's 15 predictions did.
 
-The Pred scores again show much better performance for JGap. While a quarter of
-its estimates fall within 10\%, Weka failed to have any estimation fall within
-this range. Similarly, JGap estimated twice as many wthin 25\% as Weka did. This
-is a strong highlight of genetic programming's performance in this scenario.
-
-Perhaps due to only having a single attribute, the programs produced by both
-methods are much simpler. JGap did not rely on any constant values at all in
-the produced program, nor did it go beyond the basic arithmetic functions in
-this instance. Linear regression's program is still simpler, requiring only two
-operations compared to the six required for the genetic programming solution.
-However, it is clear that this complexity is necessary to improve performance
-once again.
+Again, the program produced by GP is more complex, with 10 operations to LR's 2,
+with GP again using more complex operations such as \emph{log}, \emph{exp} and
+powers. The sheer complexity of GP's result is astounding, although once again,
+it is this complexity that creates superior results.
 % subsection kemerer_comp (end)
 
 \subsection{Miyazaki} % (fold)
 \label{sub:miyazaki_comp}
-The results that JGap produced for the \emph{Miyazaki} dataset were not as
-strong as those for the previous datasets, although they are still effective
-results to obtain. While it produced an MMRE score of 0.41, Weka completely
-failed to handle the dataset, with an MMRE score of 1.942, suggest some wildly
-inaccurate predictions were found.
+Once again, JGap vastly outperformed Weka with the \emph{Miyazaki} dataset.
+GP's MMRE score was almost 5 times better than the MMRE score of LR's, with only
+a single record of the 48 having an MRE score greater than 1 while the majority
+of predictions derived from linear regression did.
 
-In terms of the Pred scores, JGap convincingly outperformed Weka. Its Pred(10)
-score of 23\% was much better than Weka's 4.2\%, while it performed twice as
-well for Pred(25), with 39.6\% compared to 16.7\%.
+Almost a quarter of GP's predictions fell within a 10\% range while less than
+5\% did for LR's results. Similarly, almost 40\% fell within 25\% for GP and
+16.7\% did for LR, another strong performed.
 
 When looking at the program itself, the first notable feature is JGap's ignoring
 of the \emph{FILE} attribute. What is also interesting that JGap's solution only
 used a single extra operation compared to Weka, although it should be noted that
-JGap did include more complex operations.
+JGap did include more complex operations, also requiring three more operations
+than LR's program.
 % subsection miyazaki_comp (end)
 
 \subsection{Conclusions} % (fold)
@@ -362,13 +356,15 @@ JGap did include more complex operations.
 The overall conclusion is that JGap's genetic programming overwhelmingly
 outperformed Weka's linear regression. Genetic programming can typically
 estimate somewhere 20\% and 33\% of all records within 10\%, and between 40\%
-and 60\% within 50\%. JGap required more processing time to come up with its
-best results, taking advantage of more complex functions in order to achieve
-its better results. While JGap was prone to the very rare abnormally inaccurate
-estimation (such as \emph{Albrecht} 21 and \emph{Miyazaki} 16, each having
-magnitudes of relative errors of over 2, meaning that the estimations were
-off by more than two times the actual effort), this was a very frequent issue
-for Weka to deal with with its produced results. 
+and 60\% within 25\%. While JGap was prone to the very rare abnormally
+inaccurate estimation this was a very frequent issue for Weka to deal with with
+its produced results. 
+
+JGap required more processing time to come up with its best results, taking
+advantage of more complex functions in order to achieve its better results with
+more complex programs being produced. However, these complex functions can just
+be placed inside some script, so it is not completely essential that they be
+easily readable for humans, merely appreciated. 
 % subsection conclusions (end)
 % section comparisons (end)
 
