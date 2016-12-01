@@ -26,11 +26,13 @@ public class DataParser {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = br.readLine();
             while (line != null && !line.equals(DATA)) {
+                // Finding the relation.
                 if (line.startsWith(RELATION)) {
                     name = line.replace(RELATION, "");
-                } else if (line.startsWith(ATTRIBUTE)) {
+                } else if (line.startsWith(ATTRIBUTE)) { // Attributes
                     String[] split = line.replace(ATTRIBUTE, "").split(" ");
-                    if (split.length >= 2) {
+                    if (split.length >= 2 && split[1].equals("numeric")) {
+                        // Ensure that there is enough data
                         attr.add(split[0]);
                     }
                 }
